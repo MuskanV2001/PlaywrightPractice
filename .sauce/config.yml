@@ -1,0 +1,32 @@
+apiVersion: v1alpha
+kind: playwright
+
+metadata:
+  name: PlaywrightJS
+
+playwright:
+  version: 1.57.0
+  configFile: playwright.config.js
+
+sauce:
+  region: eu-central-1
+
+rootDir: .
+
+suites:
+  # - name: "Chrome Windows"
+  #   platformName: "Windows 11"
+  #   screenResolution: "1440x900"
+  #   testMatch: ["tests/.*\\.spec\\.js$"]
+  #   params:
+  #     browserName: "chromium"
+
+
+  - name: "Firefox Windows"
+    platformName: "Windows 11"
+    screenResolution: "1440x900"
+    testMatch: ["tests/.*\\.spec\\.js$"]
+    params:
+      browserName: "firefox"
+
+    
