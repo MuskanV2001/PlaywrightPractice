@@ -15,7 +15,8 @@ const config = ({
 
   use: {
    browserName: 'firefox',
-   headless: false
+   headless: false,
+   viewport: null
   },
 
 });

@@ -68,7 +68,7 @@ test('Ecommerce App', async ({browser})=>{
 })
 
 
-test.only('Ecommerce App with waiting for API Responses', async({browser})=>{
+test('Ecommerce App with waiting for completing API Responses', async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/client/");
@@ -82,5 +82,23 @@ test.only('Ecommerce App with waiting for API Responses', async({browser})=>{
     await page.locator("#login").click();
 
     await page.waitForLoadState('networkidle');
+    console.log("Available Items: " + await items.allTextContents());
+});
+
+
+test.only('Ecommerce App with waiting', async({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto("https://rahulshettyacademy.com/client/");
+
+    const email = page.locator("#userEmail");
+    const password = page.locator("#userPassword");
+    const items = page.locator(".card-body h5 b");
+
+    await email.fill("muskanv01lko@gmail.com");
+    await password.fill("Mv@12345678");
+    await page.locator("#login").click();
+
+    await items.last().waitFor();
     console.log("Available Items: " + await items.allTextContents());
 });
