@@ -86,7 +86,7 @@ test('Ecommerce App with waiting for completing API Responses', async({browser})
 });
 
 
-test.only('Ecommerce App with waiting', async({browser})=>{
+test('Ecommerce App with waiting', async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/client/");
