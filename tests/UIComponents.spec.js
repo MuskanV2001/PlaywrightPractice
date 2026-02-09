@@ -51,7 +51,7 @@ test('Blinking Link Test', async({browser})=>{
     await docsLink.click();
 });
 
-test.only('Child Windows Handling', async({browser})=>{
+test('Child Windows Handling', async({browser})=>{
     const context = await browser.newContext();
     const page =  await context.newPage();
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
