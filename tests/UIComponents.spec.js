@@ -61,7 +61,10 @@ test.only('Child Windows Handling', async({browser})=>{
     await docsLink.click()]);
     
     expect(await newTab.locator('.red').isVisible());
-    console.log(await newTab.locator('.red').textContent());
-    
-    
+    const text = await newTab.locator('.red').textContent();
+    console.log(text);
+    const domain = text.split('@')[1].split(' ')[0];
+    console.log(domain);
+
+    await page.locator("#username").fill(domain);
 });
