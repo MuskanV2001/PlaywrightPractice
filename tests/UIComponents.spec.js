@@ -64,7 +64,8 @@ test.only('Child Windows Handling', async({browser})=>{
     const text = await newTab.locator('.red').textContent();
     console.log(text);
     const domain = text.split('@')[1].split(' ')[0];
-    console.log(domain);
+    // console.log(domain);
 
     await page.locator("#username").fill(domain);
+    console.log(await page.locator("#username").inputValue());
 });
