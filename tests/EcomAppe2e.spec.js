@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test.only('Ecomm App E2E Test', async({browser})=>{
+test('Ecomm App E2E Test', async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/client/");
