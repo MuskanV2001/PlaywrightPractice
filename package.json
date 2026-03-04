@@ -1,16 +1,21 @@
 {
   "name": "playwrightjs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Practice Project for Playwright framework",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test_firefox": "npx playwright test --config playwright.config_all.js --project=Firefox_browser_execution",
+    "headed_test": "npx playwright test --headed"
+  },
   "keywords": [],
-  "author": "",
+  "author": "MuskanV",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.58.1",
-    "@types/node": "^25.2.0"
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.0",
+    "allure-playwright": "^3.5.0"
   },
   "dependencies": {
     "saucectl": "^0.198.1"
