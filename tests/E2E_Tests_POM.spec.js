@@ -5,13 +5,9 @@ const { CartPage } = require('../src/pages/CartPage.po.js');
 const { CheckoutPage } = require('../src/pages/CheckoutPage.po.js');
 const { OrdersPage } = require('../src/pages/OrdersPage.po.js');
 const { ConfirmationPage } = require('../src/pages/ConfirmationPage.po.js');
+const testData = JSON.parse(JSON.stringify(require("../utils/placeOrderData.json")));
 
 test.only('Ecomm App E2E Test', async({browser})=>{
-
-    const useremail = 'muskanv01lko@gmail.com';
-    const password = 'Mv@12345678';
-    const item = "iphone 13 pro";
-    const country = "ind";
 
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -26,18 +22,18 @@ test.only('Ecomm App E2E Test', async({browser})=>{
     
 
     await loginPage.landOnLogin();
-    await loginPage.validLogin(useremail, password);
+    await loginPage.validLogin(testData.useremail, testData.password);
     
     await dashboardpage.displayProducts();
-    await dashboardpage.addToCart(item);
+    await dashboardpage.addToCart(testData.productName);
     await dashboardpage.navToCart();
 
     await cartpage.verifyItemCheckout();
     
-    await checkoutpage.placeOrder(country);
+    await checkoutpage.placeOrder(testData.country);
 
     const orderID = await confirmationpage.verifyOrderConfirmation();
     await confirmationpage.navToOrders();
     
-    await orderspage.validateOrders(orderID, item);
+    await orderspage.validateOrders(orderID, testData.productName);
 });
