@@ -18,7 +18,7 @@ const config = ({
       name: 'Firefox_browser_execution',
       use: {
         browserName: 'firefox',
-        headless: false,
+        headless: true,
         screenshot: 'off',
         // viewport: {width:720, height:720}   //Can be used for mobile device testing
       },
