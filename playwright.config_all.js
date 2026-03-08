@@ -20,7 +20,7 @@ const config = ({
         browserName: 'firefox',
         headless: false,
         screenshot: 'off',
-        // viewport: {width:720,height:720}   //Can be used for mobile device testing
+        // viewport: {width:720, height:720}   //Can be used for mobile device testing
       },
     },
     {
